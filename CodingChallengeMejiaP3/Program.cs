@@ -18,6 +18,8 @@ class Challenges
             Console.WriteLine("6. Find the area of a triangle");
             Console.WriteLine("7. Check if a number is less than or equal to zero");
             Console.WriteLine("8. Check if the sum of two numbers is less than 100");
+            Console.WriteLine("9. Check if two numbers are equal");
+            Console.WriteLine("10. Give me something");
             Console.WriteLine("0. Exit");
             Console.Write("Please enter your choice: ");
 
@@ -50,6 +52,12 @@ class Challenges
                 case "8":
                     CheckSumLessThan100();
                     break;
+                case "9":
+                    CheckIfEqual();
+                    break;
+                case "10":
+                    GiveMeSomething();
+                    break;
                 case "0":
                     Console.WriteLine("Exiting the program. Goodbye!");
                     return;
@@ -59,6 +67,14 @@ class Challenges
             }
             Console.WriteLine();
         }
+    }
+
+    public static void GiveMeSomething()
+    {
+        Console.WriteLine("Please enter a string:");
+        string input = Console.ReadLine();
+        string result = "something " + input;
+        Console.WriteLine(result);
     }
 
     public static void SumNumbers()
@@ -147,10 +163,23 @@ class Challenges
         Console.WriteLine($"The sum of {number1} and {number2} is less than 100: {result}");
     }
 
+    public static void CheckIfEqual()
+    {
+        Console.WriteLine("Please input the first number:");
+        int number1 = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Please input a second number:");
+        int number2 = int.Parse(Console.ReadLine());
+
+        bool isEqual = AreEqual(number1, number2);
+        Console.WriteLine($"{number1} and {number2} are equal: {isEqual}");
+    }
+
     public static int Sum(int number1, int number2) => number1 + number2;
     public static int MinutesToSeconds(int minutes) => minutes * 60;
     static int PlusOne(int number) => number + 1;
     static double TriangleArea(double baseValue, double heightValue) => 0.5 * baseValue * heightValue;
     static bool IsLessThanOrEqualToZero(int number) => number <= 0;
     static bool IsSumLessThan100(int num1, int num2) => (num1 + num2) < 100;
+    static bool AreEqual(int num1, int num2) => num1 == num2;
 }
