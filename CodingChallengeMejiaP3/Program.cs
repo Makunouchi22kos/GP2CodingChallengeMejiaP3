@@ -28,6 +28,7 @@ class Challenges
             Console.WriteLine("19. Calculate total number of legs of animals");
             Console.WriteLine("20. Calculate football points");
             Console.WriteLine("21. Month Name Challenge");
+            Console.WriteLine("22. Find Min and Max");
             Console.WriteLine("0. Exit");
             Console.Write("Please enter your choice: ");
 
@@ -99,6 +100,9 @@ class Challenges
                 case "21":
                     MonthNameChallenge();  // Call the MonthName challenge function
                     break;
+                case "22":
+                    FindMinMax();
+                    break;
                 case "0":
                     Console.WriteLine("Exiting the program. Goodbye!");
                     return;
@@ -109,6 +113,39 @@ class Challenges
             Console.WriteLine();
         }
     }
+
+
+    public static void FindMinMax()
+    {
+        Console.WriteLine("Please enter numbers separated by spaces:");
+        string input = Console.ReadLine();
+        string[] inputArray = input.Split(' ');
+
+        // Convert string array to integers
+        int[] numbers = Array.ConvertAll(inputArray, int.Parse);
+
+        if (numbers.Length == 0)
+        {
+            Console.WriteLine("No numbers entered.");
+        }
+        else
+        {
+            int min = numbers[0];
+            int max = numbers[0];
+
+            foreach (int num in numbers)
+            {
+                if (num < min) min = num;
+                if (num > max) max = num;
+            }
+
+            Console.WriteLine($"The minimum number is: {min}");
+            Console.WriteLine($"The maximum number is: {max}");
+        }
+    }
+
+
+
 
 
     public static void MonthNameChallenge()
